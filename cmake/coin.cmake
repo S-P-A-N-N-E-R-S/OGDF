@@ -31,7 +31,7 @@ target_compile_definitions(COIN PRIVATE
 
 # external LP solver
 if(COIN_EXTERNAL_SOLVER_LIBRARIES)
-  target_link_libraries(COIN PUBLIC ${COIN_EXTERNAL_SOLVER_LIBRARIES})
+  target_link_libraries(COIN PUBLIC ${COIN_EXTERNAL_SOLVER_LIBRARIES} ${CMAKE_DL_LIBS})
   foreach(EXT_LIB ${COIN_EXTERNAL_SOLVER_LIBRARIES})
     if(NOT EXISTS ${EXT_LIB} OR IS_DIRECTORY ${EXT_LIB})
       message(SEND_ERROR "The provided library does not exist: ${EXT_LIB}")
